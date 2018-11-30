@@ -18,13 +18,12 @@ import javax.inject.Inject;
 public class TopicPresenter<V extends TopicMvpView> extends BasePresenter<V>
         implements TopicMvpPresenter<V> {
 
-    Context context;
+
 
     @Inject
-    public TopicPresenter(Context context) {
+    public TopicPresenter() {
         super();
 
-        this.context=context;
     }
 
 
@@ -40,7 +39,7 @@ public class TopicPresenter<V extends TopicMvpView> extends BasePresenter<V>
             getMvpView().crawlPracticeList();
         }
         else {
-            Toast.makeText(context, "No Network", Toast.LENGTH_SHORT).show();
+            getMvpView().showMessage("Network Error");
             getMvpView().hideLoading();
         }
 

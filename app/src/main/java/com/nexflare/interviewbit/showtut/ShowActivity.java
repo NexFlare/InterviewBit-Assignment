@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import com.nexflare.interviewbit.R;
 import com.nexflare.interviewbit.crawler.Crawler;
@@ -60,7 +61,7 @@ public class ShowActivity extends AppCompatActivity implements ShowMvpView {
         webview.getSettings().setMediaPlaybackRequiresUserGesture(false);
 
 
-        mPresenter=new ShowPresenter<>(this);
+        mPresenter=new ShowPresenter<>();
         mPresenter.onAttach(ShowActivity.this);
         recyclerView=findViewById(R.id.recyclerPrac);
         crawler=new Crawler(this);
@@ -96,10 +97,14 @@ public class ShowActivity extends AppCompatActivity implements ShowMvpView {
     @Override
     public void onError(int resId) {
 
+        Toast.makeText(this, " "+getString(resId), Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
     public void onError(String message) {
+
+        Toast.makeText(this, ""+message, Toast.LENGTH_SHORT).show();
 
     }
 

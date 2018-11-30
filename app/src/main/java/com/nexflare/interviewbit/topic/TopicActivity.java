@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.nexflare.interviewbit.R;
 import com.nexflare.interviewbit.crawler.Crawler;
@@ -44,7 +45,7 @@ public class TopicActivity extends AppCompatActivity implements TopicMvpView {
 
         url = getIntent().getStringExtra("url");
 
-        mPresenter=new TopicPresenter<>(this);
+        mPresenter=new TopicPresenter<>();
         mPresenter.onAttach(TopicActivity.this);
         recyclerView=findViewById(R.id.recyclerPrac);
         crawler=new Crawler(this);
@@ -82,13 +83,16 @@ public class TopicActivity extends AppCompatActivity implements TopicMvpView {
     @Override
     public void onError(int resId) {
 
+        Toast.makeText(this, " "+getString(resId), Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
     public void onError(String message) {
 
-    }
+        Toast.makeText(this, ""+message, Toast.LENGTH_SHORT).show();
 
+    }
     @Override
     public void showMessage(String message) {
 

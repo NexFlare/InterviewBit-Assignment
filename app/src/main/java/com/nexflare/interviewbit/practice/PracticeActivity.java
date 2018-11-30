@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.nexflare.interviewbit.R;
 import com.nexflare.interviewbit.crawler.Crawler;
@@ -38,7 +39,7 @@ public class PracticeActivity extends AppCompatActivity implements PracticeMvpVi
         setContentView(R.layout.activity_practice);
 
 
-        mPresenter=new PracticePresenter<>(this);
+        mPresenter=new PracticePresenter<>();
         mPresenter.onAttach(PracticeActivity.this);
         recyclerView=findViewById(R.id.recyclerPrac);
         crawler=new Crawler(this);
@@ -76,13 +77,16 @@ public class PracticeActivity extends AppCompatActivity implements PracticeMvpVi
     @Override
     public void onError(int resId) {
 
+        Toast.makeText(this, " "+getString(resId), Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
     public void onError(String message) {
 
-    }
+        Toast.makeText(this, ""+message, Toast.LENGTH_SHORT).show();
 
+    }
     @Override
     public void showMessage(String message) {
 
