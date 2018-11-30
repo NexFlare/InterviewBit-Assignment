@@ -1,0 +1,37 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    android:id="@+id/cardView"
+    android:weightSum="1.0">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1.0">
+
+        <TextView
+            android:id="@+id/headingTut"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="0.68"
+            android:paddingLeft="10dp"
+            android:gravity="center"
+            android:textAlignment="viewStart"
+            android:singleLine="true"
+            android:text="Hey This is the topics"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/viewTut"
+            android:layout_weight="0.3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/outline_blue"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Veiw Tutorial"
+            android:textColor="@color/aquablue"
+            android:textStyle="bold" />
+    </LinearLayout>
+</android.support.v7.widget.CardView>

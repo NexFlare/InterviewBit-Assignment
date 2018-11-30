@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">InterviewBit</string>
+    <string name="base_url">https://www.interviewbit.com</string>
+    <string name="prac_url">/practice</string>
+</resources>
